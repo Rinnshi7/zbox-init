@@ -85,6 +85,7 @@ $lang->task->typeAB            = '类型';
 $lang->task->mode              = '任务模式';
 $lang->task->sync2Gitlab       = '同步到GitLab';
 $lang->task->pri               = '优先级';
+$lang->task->attribute         = '任务属性';
 $lang->task->mailto            = '抄送给';
 $lang->task->estimate          = '最初预计';
 $lang->task->estimateAB        = '预计';

@@ -1,0 +1,15 @@
+# 数据库数据
+data/mysql/
+
+# 日志文件
+logs/*.log
+
+# 临时文件
+tmp/*
+
+# 运行时二进制文件
+run/*
+
+# 保留目录结构（可选）
+!tmp/.gitkeep
+!logs/.gitkeep

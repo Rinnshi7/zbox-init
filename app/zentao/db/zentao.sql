@@ -14934,3 +14934,5 @@ BEGIN
     return 0__DELIMITER__
     END IF__DELIMITER__
 END;
+
+ALTER TABLE `zt_task` ADD `attribute` ENUM('A','B','C') DEFAULT 'A' AFTER `name`;

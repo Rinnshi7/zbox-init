@@ -61,6 +61,11 @@ foreach(explode(',', $config->task->create->requiredFields) as $field)
             </div>
           </td>
         </tr>
+        <tr class="<?php if(isset($requiredFields['attribute'])) echo 'required';?>">
+          <th><?php echo $lang->task->attribute;?></th>
+          <td><?php echo html::select('attribute', array('A' => 'A', 'B' => 'B', 'C' => 'C'), 'A', "class='form-control chosen' required");?></td>
+          <td></td>
+        </tr>>
         <tr>
           <th><?php echo $lang->task->module;?></th>
           <td id='moduleIdBox'><?php echo html::select('module', $moduleOptionMenu, $task->module, "class='form-control chosen' onchange='setStories(this.value, $execution->id)'");?></td>
@@ -138,6 +143,7 @@ foreach(explode(',', $config->task->create->requiredFields) as $field)
                 <tr class='text-center'>
                   <th class='c-name'><?php echo $lang->task->storyAB;?></th>
                   <th class='c-pri <?php if(isset($requiredFields['pri'])) echo 'required';?>'><?php echo $lang->task->pri;?></th>
+                  <th class='c-attribute <?php if(isset($requiredFields['attribute'])) echo 'required';?>'><?php echo $lang->task->attribute;?></th>
                   <th class='c-date <?php if(isset($requiredFields['estStarted'])) echo 'required';?>'><?php echo $lang->task->estStarted;?></th>
                   <th class='c-date <?php if(isset($requiredFields['deadline'])) echo 'required';?>'><?php echo $lang->task->deadline;?></th>
                   <th class='c-assignedTo'><?php echo $lang->task->assignedTo;?></th>
@@ -152,6 +158,7 @@ foreach(explode(',', $config->task->create->requiredFields) as $field)
                 <tr>
                   <td><?php echo html::select("testStory[$i]", array($storyID => $storyTitle), $storyID, "class='form-control chosen'");?></td>
                   <td><?php echo html::select("testPri[$i]", $lang->task->priList, $task->pri, "class='form-control chosen'");?></td>
+                  <td><?php echo html::select("testAttribute[$i]", array('A' => 'A', 'B' => 'B', 'C' => 'C'), 'A', "class='form-control chosen'");?></td>
                   <td>
                     <div class='input-group'>
                       <?php
@@ -328,6 +335,7 @@ foreach(explode(',', $config->task->create->requiredFields) as $field)
   <tr>
     <td><?php echo html::select("testStory[]", array(0 => ''), 0, "class='form-control chosen'");?></td>
     <td><?php echo html::select("testPri[]", $lang->task->priList, '', "class='form-control chosen'");?></td>
+    <td><?php echo html::select("testAttribute[]", array('A' => 'A', 'B' => 'B', 'C' => 'C'), 'A', "class='form-control chosen'");?></td>
     <td>
       <div class='input-group'>
         <?php echo html::input("testEstStarted[]", '', "class='form-control form-date' placeholder='{$lang->task->estStarted}'");?>

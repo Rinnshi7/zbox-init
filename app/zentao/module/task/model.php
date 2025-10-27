@@ -41,7 +41,7 @@ class taskModel extends model
         $taskIdList     = array();
         $taskDatas      = array();
         $taskFiles      = array();
-        $requiredFields = "," . $this->config->task->create->requiredFields . ",";
+        $requiredFields = "," . $this->config->task->create->requiredFields . ",attribute,";
 
         if($this->post->selectTestStory)
         {
@@ -84,6 +84,7 @@ class taskModel extends model
                 $task->assignedTo = $assignedTo;
                 $task->estimate   = $this->post->testEstimate[$i];
                 $task->left       = $this->post->testEstimate[$i];
+                $task->attribute  = $this->post->testAttribute[$i];
 
                 /* Check requiredFields */
                 $this->dao->insert(TABLE_TASK)->data($task)->batchCheck($requiredFields, 'notempty');
@@ -112,6 +113,7 @@ class taskModel extends model
             ->setDefault('status', 'wait')
             ->setDefault('project', $this->getProjectID($executionID))
             ->setIF($this->post->estimate != false, 'left', $this->post->estimate)
+            ->setIF($this->post->attribute, 'attribute', $this->post->attribute)
             ->setIF($this->post->story != false, 'storyVersion', $this->loadModel('story')->getVersion($this->post->story))
             ->setIF(strpos($requiredFields, 'estStarted') !== false, 'estStarted', helper::isZeroDate($this->post->estStarted) ? '' : $this->post->estStarted)
             ->setIF(strpos($requiredFields, 'deadline') !== false, 'deadline', helper::isZeroDate($this->post->deadline) ? '' : $this->post->deadline)

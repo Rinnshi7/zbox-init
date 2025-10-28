@@ -22,18 +22,21 @@ class taskModel extends model
      */
     public function create($executionID, $bugID)
     {
+        // estimate not < 0
         if((float)$this->post->estimate < 0)
         {
             dao::$errors[] = $this->lang->task->error->recordMinus;
             return false;
         }
 
+        // check estStarted and deadline.
         if(!empty($this->config->limitTaskDate))
         {
             $this->checkEstStartedAndDeadline($executionID, $this->post->estStarted, $this->post->deadline);
             if(dao::isError()) return false;
         }
 
+        //initiate
         $executionID    = (int)$executionID;
         $estStarted     = null;
         $deadline       = null;

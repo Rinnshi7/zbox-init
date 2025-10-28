@@ -1,2 +1,0 @@
-<?php
-$lang->task->timeout = '超时';

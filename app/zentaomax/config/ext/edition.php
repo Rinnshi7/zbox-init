@@ -1,2 +1,0 @@
-<?php
-$config->edition = "max";

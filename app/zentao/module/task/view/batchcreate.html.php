@@ -76,6 +76,7 @@ $colspan = count($visibleFields) + 3;
             <th class='c-module'><?php echo $lang->kanbancard->lane;?></th>
             <?php endif;?>
             <th class='c-type required'><?php echo $lang->task->type;?></span></th>
+            <th class='c-attribute'><?php echo $lang->task->attribute;?></th>
             <th class='c-assigned<?php echo zget($visibleFields, 'assignedTo', ' hidden') . zget($requiredFields, 'assignedTo', '', ' required');?> assignedToBox'><?php echo $lang->task->assignedTo;?></th>
             <th class='c-estimate<?php  echo zget($visibleFields, 'estimate', ' hidden') . zget($requiredFields, 'estimate', '', ' required');?> estimateBox'><?php echo $lang->task->estimateAB;?></th>
             <th class='c-date<?php echo zget($visibleFields, 'estStarted', ' hidden') . zget($requiredFields, 'estStarted', '', ' required');?> estStartedBox'><?php echo $lang->task->estStarted;?></th>
@@ -150,6 +151,7 @@ $colspan = count($visibleFields) + 3;
             <td><?php echo html::select("lanes[$i]", $lanePairs, $laneID, "class='form-control chosen'");?></td>
             <?php endif;?>
             <td><?php echo html::select("type[$i]", $lang->task->typeList, $type, 'class=form-control');?></td>
+            <td><?php echo html::select("attribute[$i]", array('A' => 'A', 'B' => 'B', 'C' => 'C'), 'A', 'class=form-control');?></td>
             <td class="<?php echo zget($visibleFields, 'assignedTo', 'hidden')?> assignedToBox" style='overflow:visible'><?php echo html::select("assignedTo[$i]", $members, $member, "class='form-control chosen'");?></td>
             <td class="<?php echo zget($visibleFields, 'estimate', 'hidden')?> estimateBox"><?php echo html::input("estimate[$i]", '', "class='form-control text-center'");?></td>
             <td class="<?php echo zget($visibleFields, 'estStarted', 'hidden')?> estStartedBox">

@@ -63,9 +63,9 @@ foreach(explode(',', $config->task->create->requiredFields) as $field)
         </tr>
         <tr class="<?php if(isset($requiredFields['attribute'])) echo 'required';?>">
           <th><?php echo $lang->task->attribute;?></th>
-          <td><?php echo html::select('attribute', $lang->task->attribute, $task->attribute, array('A' => 'A', 'B' => 'B', 'C' => 'C'),"class='form-control chosen' required");?></td>
+          <td><?php echo html::select('attribute', array('A' => 'A', 'B' => 'B', 'C' => 'C'), $task->attribute, "class='form-control chosen' required");?></td>
           <td></td>
-        </tr>>
+        </tr>
         <tr>
           <th><?php echo $lang->task->module;?></th>
           <td id='moduleIdBox'><?php echo html::select('module', $moduleOptionMenu, $task->module, "class='form-control chosen' onchange='setStories(this.value, $execution->id)'");?></td>

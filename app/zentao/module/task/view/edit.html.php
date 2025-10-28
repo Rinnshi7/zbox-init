@@ -184,6 +184,10 @@ foreach(explode(',', $config->task->edit->requiredFields) as $field)
                 <th><?php echo $lang->task->type;?></th>
                 <td><?php echo html::select('type', $lang->task->typeList, $task->type, "class='form-control chosen'");?></td>
               </tr>
+              <tr>
+                <th><?php echo $lang->task->attribute;?></th>
+                <td><?php echo html::select('attribute', array('A' => 'A', 'B' => 'B', 'C' => 'C'), $task->attribute, "class='form-control chosen'");?></td>
+              </tr>
               <?php if(empty($task->children)):?>
               <tr>
                 <th><?php echo $lang->task->status;?></th>

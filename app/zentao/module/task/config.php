@@ -30,7 +30,7 @@ $config->task->removeFields = 'objectTypeList,productList,executionList,gitlabID
 $config->task->exportFields = '
     id, execution, module, story, fromBug,
     name, desc,
-    type, pri,estStarted, realStarted, deadline, status,estimate, consumed, left,
+    type, attribute, pri,estStarted, realStarted, deadline, status,estimate, consumed, left,
     mailto, progress, mode,
     openedBy, openedDate, assignedTo, assignedDate,
     finishedBy, finishedDate, canceledBy, canceledDate,
@@ -38,15 +38,15 @@ $config->task->exportFields = '
     lastEditedBy, lastEditedDate, activatedDate, files
     ';
 
-$config->task->customCreateFields      = 'story,estStarted,deadline,mailto,pri,estimate';
-$config->task->customBatchCreateFields = 'module,story,assignedTo,estimate,estStarted,deadline,desc,pri';
-$config->task->customBatchEditFields   = 'module,assignedTo,status,pri,estimate,record,left,estStarted,deadline,finishedBy,canceledBy,closedBy,closedReason';
+$config->task->customCreateFields      = 'story,estStarted,deadline,mailto,pri,estimate,attribute';
+$config->task->customBatchCreateFields = 'module,story,assignedTo,estimate,estStarted,deadline,desc,pri,attribute';
+$config->task->customBatchEditFields   = 'module,assignedTo,status,pri,estimate,record,left,estStarted,deadline,finishedBy,canceledBy,closedBy,closedReason,attribute';
 $config->task->defaultLoadCount        = 50;
 
 $config->task->custom = new stdclass();
 $config->task->custom->createFields      = $config->task->customCreateFields;
-$config->task->custom->batchCreateFields = 'module,story,assignedTo,estimate,estStarted,deadline,desc,pri';
-$config->task->custom->batchEditFields   = 'module,assignedTo,status,pri,estimate,record,left';
+$config->task->custom->batchCreateFields = 'module,story,assignedTo,estimate,estStarted,deadline,desc,pri,attribute';
+$config->task->custom->batchEditFields   = 'module,assignedTo,status,pri,estimate,record,left,attribute';
 
 $config->task->excludeCheckFileds = ',pri,estStartedDitto,deadlineDitto,parent,regions,lanes,vision,region,';
 
@@ -86,6 +86,13 @@ $config->task->datatable->fieldList['type']['title']    = 'typeAB';
 $config->task->datatable->fieldList['type']['fixed']    = 'no';
 $config->task->datatable->fieldList['type']['width']    = '80';
 $config->task->datatable->fieldList['type']['required'] = 'no';
+
+$config->task->datatable->fieldList['attribute']['title']    = 'attribute';
+$config->task->datatable->fieldList['attribute']['fixed']    = 'no';
+$config->task->datatable->fieldList['attribute']['width']    = '60';
+$config->task->datatable->fieldList['attribute']['required'] = 'no';
+$config->task->datatable->fieldList['attribute']['control'] = 'select';
+$config->task->datatable->fieldList['attribute']['dataSource'] = array('A' => 'A', 'B' => 'B', 'C' => 'C');
 
 $config->task->datatable->fieldList['status']['title']    = 'statusAB';
 $config->task->datatable->fieldList['status']['fixed']    = 'no';

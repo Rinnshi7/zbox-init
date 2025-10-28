@@ -283,6 +283,10 @@
                   <td><?php echo zget($this->lang->task->typeList, $task->type, $task->type);?></td>
                 </tr>
                 <tr>
+                  <th><?php echo $lang->task->attribute;?></th>
+                  <td><?php echo $task->attribute;?></td>
+                </tr>
+                <tr>
                   <th><?php echo $lang->task->status;?></th>
                   <td><span class='status-task status-<?php echo $task->status;?>'><span class="label label-dot"></span> <?php echo $this->processStatus('task', $task);?></td>
                 </tr>
